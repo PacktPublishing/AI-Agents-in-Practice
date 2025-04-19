@@ -1,0 +1,14 @@
+streamlit
+requests
+python-dotenv
+openai
+azure-monitor-opentelemetry
+opentelemetry-api
+opentelemetry-sdk
+langchain
+faiss-cpu
+langchain-openai
+langchain-community
+langchain-core
+langchain-text-splitters
+sqlite3
