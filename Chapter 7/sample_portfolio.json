@@ -1,0 +1,130 @@
+[
+    {
+        "symbol": "AAPL",
+        "sector": "Technology",
+        "quantity": 13,
+        "purchase_price": 1202.57,
+        "total_invested": 15633.41,
+        "purchase_date": "2022-03-12"
+    },
+    {
+        "symbol": "GOOGL",
+        "sector": "Technology",
+        "quantity": 21,
+        "purchase_price": 1625.97,
+        "total_invested": 34145.37,
+        "purchase_date": "2022-01-02"
+    },
+    {
+        "symbol": "MSFT",
+        "sector": "Technology",
+        "quantity": 68,
+        "purchase_price": 2579.45,
+        "total_invested": 175402.6,
+        "purchase_date": "2022-10-05"
+    },
+    {
+        "symbol": "AMZN",
+        "sector": "Consumer Discretionary",
+        "quantity": 86,
+        "purchase_price": 1604.04,
+        "total_invested": 137947.44,
+        "purchase_date": "2022-10-26"
+    },
+    {
+        "symbol": "TSLA",
+        "sector": "Consumer Discretionary",
+        "quantity": 15,
+        "purchase_price": 944.23,
+        "total_invested": 14163.45,
+        "purchase_date": "2022-08-19"
+    },
+    {
+        "symbol": "JNJ",
+        "sector": "Healthcare",
+        "quantity": 67,
+        "purchase_price": 2739.44,
+        "total_invested": 183542.48,
+        "purchase_date": "2022-06-23"
+    },
+    {
+        "symbol": "NVDA",
+        "sector": "Technology",
+        "quantity": 72,
+        "purchase_price": 475.52,
+        "total_invested": 34237.44,
+        "purchase_date": "2022-12-17"
+    },
+    {
+        "symbol": "XOM",
+        "sector": "Energy",
+        "quantity": 93,
+        "purchase_price": 2592.5,
+        "total_invested": 241102.5,
+        "purchase_date": "2022-04-23"
+    },
+    {
+        "symbol": "META",
+        "sector": "Communication Services",
+        "quantity": 100,
+        "purchase_price": 215.68,
+        "total_invested": 21568.0,
+        "purchase_date": "2022-02-27"
+    },
+    {
+        "symbol": "V",
+        "sector": "Financials",
+        "quantity": 93,
+        "purchase_price": 1105.12,
+        "total_invested": 102776.16,
+        "purchase_date": "2022-09-21"
+    },
+    {
+        "symbol": "PG",
+        "sector": "Consumer Staples",
+        "quantity": 7,
+        "purchase_price": 672.84,
+        "total_invested": 4709.88,
+        "purchase_date": "2022-06-03"
+    },
+    {
+        "symbol": "BABA",
+        "sector": "Consumer Discretionary",
+        "quantity": 49,
+        "purchase_price": 105.96,
+        "total_invested": 5192.04,
+        "purchase_date": "2022-11-07"
+    },
+    {
+        "symbol": "JPM",
+        "sector": "Financials",
+        "quantity": 10,
+        "purchase_price": 2214.57,
+        "total_invested": 22145.7,
+        "purchase_date": "2022-05-22"
+    },
+    {
+        "symbol": "KO",
+        "sector": "Consumer Staples",
+        "quantity": 95,
+        "purchase_price": 616.13,
+        "total_invested": 58532.35,
+        "purchase_date": "2022-09-22"
+    },
+    {
+        "symbol": "DIS",
+        "sector": "Communication Services",
+        "quantity": 29,
+        "purchase_price": 1530.01,
+        "total_invested": 44370.29,
+        "purchase_date": "2022-05-11"
+    },
+    {
+        "symbol": "PFE",
+        "sector": "Healthcare",
+        "quantity": 54,
+        "purchase_price": 2643.45,
+        "total_invested": 142746.3,
+        "purchase_date": "2022-01-19"
+    }
+]
