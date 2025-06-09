@@ -1,91 +1,105 @@
-# Working with LLMs SDKs
+# AI Agent for Piadineria Restaurant
 
-This Jupyter notebook demonstrates how to interact with Large Language Models (LLMs) using both Azure OpenAI and OpenAI SDKs. It provides practical examples of setting up API connections and making various types of requests to these services.
-
-## Prerequisites
-
-- Python environment with Jupyter support
-- Required packages:
-  ```
-  openai
-  python-dotenv
-  ```
-
-## Setup and Configuration
-
-### Environment Variables
-The notebook requires the following environment variables to be set in a `.env` file:
-- `AZURE_OPENAI_API_VERSION`
-- `AZURE_OPENAI_ENDPOINT`
-- `AZURE_OPENAI_API_KEY`
-- `AZURE_OPENAI_CHAT_DEPLOYMENT_NAME`
-- `OPENAI_API_KEY` (if using OpenAI directly)
+This notebook demonstrates the implementation of an AI-powered assistant for a Piadineria restaurant using LangChain and Azure OpenAI services. The agent helps customers explore the menu, get product information, and place orders.
 
 ## Features
 
+
+- **SQL Database Integration**: Product and supplier database management
+- **Document Retrieval**: RAG (Retrieval Augmented Generation) implementation for accessing restaurant documentation
+- **Shopping Cart Integration**: Ability to add items to a cart through an API
+- **Interactive Chat Interface**: Natural language interaction with customers
+
+## Components
+
 ### 1. Azure OpenAI Integration
-- Detailed instructions for obtaining Azure OpenAI endpoint and API keys
-- Example configuration for Azure OpenAI client
-- Link to official Microsoft documentation for complete setup guide
+- Uses Azure OpenAI for chat completion and embeddings
+- Requires proper environment variables setup (API key, endpoint, etc.)
 
-### 2. OpenAI Integration
-- Alternative setup for using the OpenAI API directly
-- Example configuration for standard OpenAI client
+### 2. Database Management
+- SQLite database (`piadineria.db`) containing:
+  - Products table (30 Italian food items)
+  - Suppliers table (10 suppliers)
+- Includes comprehensive product information:
+  - Product details (name, price, stock)
+  - Allergen information
+  - Nutritional data
+  - Supplier relationships
 
-### 3. Chat Completion Examples
-- Basic chat completion request
-- Response inspection and parsing
-- JSON structure analysis of API responses
+### 3. Tools and Capabilities
+- SQL Database Tools: Query and manage product/supplier data
+- Cart Management: Add items to shopping cart
+- Document Retrieval: Search through restaurant documentation
+  - Health certificates
+  - Owner's history
+  - Other relevant documents
 
-### 4. Interactive Chat Implementation
-- Implementation of an interactive chat loop
-- Message history management
-- Conversation context preservation
-- Exit commands handling
+### 4. Agent Evaluation
+- Integration with LangSmith for agent evaluation
+- Custom evaluation metrics:
+  - Correctness scoring
+  - Tool usage evaluation
+  - Response quality assessment
 
-## Code Examples
+## Setup Requirements
 
-The notebook includes several practical examples:
-1. Basic API setup and authentication
-2. Simple chat completion requests
-3. Response structure inspection
-4. Interactive chat implementation
+1. Environment Variables:
+   - AZURE_OPENAI_API_VERSION
+   - AZURE_OPENAI_ENDPOINT
+   - AZURE_OPENAI_API_KEY
+   - AZURE_OPENAI_CHAT_DEPLOYMENT_NAME
+   - LANGSMITH_API_KEY
+   - LANGSMITH_ENDPOINT
+   - LANGSMITH_PROJECT
+
+2. Required Python Packages:
+   - langchain
+   - openai
+   - python-dotenv
+   - faiss-cpu
+   - sqlite3
+   - pandas
+   - requests
+   - langsmith
+
+3. Additional Files:
+   - `piadineria.db`: SQLite database
+   - `documents/`: Folder containing PDF documentation
+   - JSON Server running on localhost:3000 for cart functionality
 
 ## Usage
 
-Each section of the notebook can be run sequentially to:
-1. Set up the environment and load necessary credentials
-2. Initialize the API client (Azure OpenAI or OpenAI)
-3. Make API requests
-4. Inspect responses
-5. Run an interactive chat session
+The notebook provides an interactive chat interface where users can:
+- Query product information
+- Check prices and availability
+- Add items to cart
+- Get information about allergens and ingredients
+- Access restaurant documentation
+- Learn about the restaurant's history and certifications
 
-## Interactive Chat Features
+Example interactions:
+```
+User: "What is the price of ricotta cheese?"
+AI: [Queries database and returns price information]
 
-The interactive chat implementation includes:
-- System message setup
-- User input handling
-- Response processing
-- Conversation history management
-- Exit commands ("exit" or "quit")
+User: "Add ricotta cheese to cart"
+AI: [Adds item to cart and confirms action]
 
-## Response Analysis
+User: "Do you have any food safety certificates?"
+AI: [Retrieves and provides information from documentation]
+```
 
-The notebook demonstrates how to:
-- Access response content
-- Convert responses to JSON
-- Pretty print response structures
-- Extract specific fields from responses
+## Agent Evaluation
 
-## Security Notes
+The notebook includes comprehensive evaluation capabilities:
+- Dataset creation for testing
+- Correctness evaluation
+- Tool usage assessment
+- Response quality measurement
+- Integration with LangSmith for detailed analytics
 
-- API keys and endpoints should be stored in a `.env` file
-- The `.env` file should never be committed to version control
-- Azure OpenAI provides two keys for secure rotation
-- Always use environment variables for sensitive credentials
+## Notes
 
-## Additional Resources
-
-- [Azure OpenAI Quickstart Guide](https://learn.microsoft.com/en-us/azure/ai-services/openai/gpt-v-quickstart?tabs=command-line%2Ckeyless%2Ctypescript-keyless&pivots=programming-language-python)
-- Azure Portal documentation for key management
-- OpenAI API documentation
+- The cart functionality requires a running JSON server on localhost:3000
+- All sensitive information should be stored in a `.env` file
+- Regular evaluation of agent performance is recommended through LangSmith
