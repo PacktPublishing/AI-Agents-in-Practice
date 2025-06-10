@@ -1,26 +1,23 @@
 import streamlit as st
 import requests
-import logging
-import time
 import os
-from dotenv import dotenv_values
-from openai import AzureOpenAI
-from azure.monitor.opentelemetry import configure_azure_monitor
-from opentelemetry import trace
-import os
-from langchain_core.runnables import RunnableConfig
 from dotenv import load_dotenv
-from langchain_openai import AzureOpenAI
-from langchain_core.messages import HumanMessage
-from langchain_openai import AzureChatOpenAI
-import requests
+from langchain_openai import AzureChatOpenAI, AzureOpenAIEmbeddings
 from langchain.agents import AgentExecutor, create_openai_tools_agent
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from langchain.tools import BaseTool, StructuredTool, tool
+from langchain.tools import tool
 import sqlite3
 from langchain.callbacks import StreamlitCallbackHandler
-from langchain.agents import ConversationalChatAgent, AgentExecutor
 from langchain.memory import ConversationBufferMemory
+from langchain_community.agent_toolkits.sql.toolkit import SQLDatabaseToolkit
+from langchain_community.utilities.sql_database import SQLDatabase
+import faiss
+from langchain_community.docstore.in_memory import InMemoryDocstore
+from langchain_community.vectorstores import FAISS
+from langchain.document_loaders import PyPDFDirectoryLoader
+from langchain_text_splitters import CharacterTextSplitter
+from langchain.tools.retriever import create_retriever_tool
+from langchain_community.chat_message_histories import StreamlitChatMessageHistory
 
 # Display the logo in the sidebar
 st.set_page_config(
@@ -46,17 +43,17 @@ model = AzureChatOpenAI(
     azure_deployment=azure_chat_deployment,
 )
 
-from langchain_openai import AzureOpenAIEmbeddings
+
 
 embeddings = AzureOpenAIEmbeddings(
     api_key = openai_api_key,
     azure_deployment="text-embedding-3-large"
 )
 
-from langchain_community.utilities.sql_database import SQLDatabase
+
 db = SQLDatabase.from_uri("sqlite:///piadineria.db")
 
-from langchain_community.agent_toolkits.sql.toolkit import SQLDatabaseToolkit
+
 
 sql_toolkit = SQLDatabaseToolkit(db=db, llm=model)
 
@@ -77,9 +74,7 @@ def add_to_cart(item_name: str, item_price: float) -> str:
     else:
         return f"Failed to add item to cart: {response.status_code} {response.text}"
     
-import faiss
-from langchain_community.docstore.in_memory import InMemoryDocstore
-from langchain_community.vectorstores import FAISS
+
 
 index = faiss.IndexFlatL2(len(embeddings.embed_query("hello world")))
 
@@ -90,16 +85,7 @@ vector_store = FAISS(
     index_to_docstore_id={},
 )
 
-from langchain_community.document_loaders import PyPDFLoader
-from langchain_community.document_loaders import WebBaseLoader
-from langchain_community.vectorstores import Chroma
-from langchain_openai import OpenAIEmbeddings
-from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_community.document_loaders import TextLoader
-import time
-from langchain_text_splitters import CharacterTextSplitter
 
-from langchain.document_loaders import PyPDFDirectoryLoader
 
 
 index = faiss.IndexFlatL2(len(embeddings.embed_query("hello world")))
@@ -119,12 +105,12 @@ documents = loader.load()
 text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
 docs = text_splitter.split_documents(documents)
 
-from langchain_community.retrievers import AzureAISearchRetriever
+
 vector_store.add_documents(documents=docs)
 
 retriever = vector_store.as_retriever()
 
-from langchain.tools.retriever import create_retriever_tool
+
 
 rag_tool = create_retriever_tool(
     retriever,
@@ -157,9 +143,7 @@ prompt = ChatPromptTemplate.from_messages(
 # Setup the toolkit
 toolkit = [rag_tool, add_to_cart, sql_toolkit.get_tools()[0], sql_toolkit.get_tools()[1], sql_toolkit.get_tools()[2], sql_toolkit.get_tools()[3]]
 
-from langchain_community.chat_message_histories import ChatMessageHistory
-from langchain_core.runnables.history import RunnableWithMessageHistory
-from langchain_community.chat_message_histories import StreamlitChatMessageHistory
+
 
 msgs = StreamlitChatMessageHistory()
 memory = ConversationBufferMemory(
