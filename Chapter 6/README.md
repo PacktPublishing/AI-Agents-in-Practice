@@ -65,7 +65,7 @@ This notebook demonstrates the implementation of an AI-powered assistant for a P
 3. Additional Files:
    - `piadineria.db`: SQLite database
    - `documents/`: Folder containing PDF documentation
-   - JSON Server running on localhost:3000 for cart functionality
+   - `db.json` running on localhost:3000 for cart functionality. To run this server 
 
 ## Usage
 
@@ -77,17 +77,6 @@ The notebook provides an interactive chat interface where users can:
 - Access restaurant documentation
 - Learn about the restaurant's history and certifications
 
-Example interactions:
-```
-User: "What is the price of ricotta cheese?"
-AI: [Queries database and returns price information]
-
-User: "Add ricotta cheese to cart"
-AI: [Adds item to cart and confirms action]
-
-User: "Do you have any food safety certificates?"
-AI: [Retrieves and provides information from documentation]
-```
 
 ## Agent Evaluation
 
