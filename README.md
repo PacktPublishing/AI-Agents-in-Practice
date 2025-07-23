@@ -59,7 +59,7 @@ In an era where AI agents are expected to operate autonomously and tackle comple
 | **Chapter 2: The rise of AI Agents** | | | | |
 | **Chapter 3: The need for an AI orchestrator** | | | | |
 | **Chapter 4: The need for Memory and Context Management** | | | | |
-| **Chapter 5: The need for Tools and External Integrations ** | | | | |
+| **Chapter 5: The need for Tools and External Integrations** | | | | |
 | **Chapter 6: Building your first AI Agent with LangChain** | | | | |
 | <ul><li>AIAgent.ipynb</li></ul> | <a href="https://colab.research.google.com/github/PacktPublishing/AI-Agents-in-Practice/blob/main/Chapter 6/AIAgent.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a><br> | <a href="https://www.kaggle.com/kernels/welcome?src=https://github.com/PacktPublishing/AI-Agents-in-Practice/blob/main/Chapter 6/AIAgent.ipynb"><img src="https://kaggle.com/static/images/open-in-kaggle.svg" alt="Open In Kaggle"></a><br> | <a href="https://gradient.run/notebook/github.com/PacktPublishing/AI-Agents-in-Practice/blob/main/Chapter 6/AIAgent.ipynb"><img src="https://assets.paperspace.io/img/gradient-badge.svg" alt="Open In Gradient"></a><br> | <a href="https://studiolab.sagemaker.aws/import/github/PacktPublishing/AI-Agents-in-Practice/blob/main/Chapter 6/AIAgent.ipynb"><img src="https://studiolab.sagemaker.aws/studiolab.svg" alt="Open In Studio Lab"></a><br> |
 | **Chapter 7: What happens if we put multiple AI Agents into the same room?** | | | | |
